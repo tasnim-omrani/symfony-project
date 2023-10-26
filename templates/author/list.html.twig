@@ -1,0 +1,39 @@
+<img src="/images/me.jpg" height="300">
+<table border="1">
+<tr> 
+     <th>Id</th>
+      <th>Picture</th>
+       <th>Username</th>
+        <th>Email</th>
+         <th>Nb_books</th>
+         <th>Details</th>
+</tr>
+{%for a in auth|reverse%}
+{#Comments#}
+<tr>
+
+<td> {{a.id}}</td>
+<td> <img src="{{a.picture}}" height="300"></td>
+<td> {{a.username|upper}}</td>
+<td> {{a.email}}</td>
+<td> {{a.nb_books}}</td>
+<td> <a href="{{path('AD',{'ii':a.id})}}">Details</a></td>
+</tr>
+
+{%else%} Table Not Found!!
+{%endfor%}
+
+</table>
+
+{#question6#}
+Le nombre des auteurs est: {{auth|length}}
+
+{#question7#}
+{% set somme=0 %}
+{% for aa in auth %}
+{% set somme=somme+aa.nb_books %}
+
+{% endfor %}
+
+<p>le nbr total des les livres est: <b>{{somme}}</b></p>
+

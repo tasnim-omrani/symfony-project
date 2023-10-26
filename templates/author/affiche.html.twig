@@ -1,0 +1,29 @@
+
+
+<table border="1">
+<tr> 
+    <th>Id</th>  
+    <th>Username</th>
+    <th>Email</th>   
+    <th>Details</th>
+    <th>Delete</th>
+</tr>
+{%for a in obj%}
+
+<tr>
+
+<td> {{a.id}}</td>
+<td> {{a.username|upper}}</td>
+<td> {{a.email}}</td>
+<td> <a href="{{path('Detail',{'id':a.id})}}">Details</a></td>
+{# <td> <a href="{{path('Delete',{'id':a.id})}}">Delete</a></td> #}
+<td>
+<form action="{{path('Delete',{'id':a.id})}}">
+<input type="submit" value="Delete">
+</form>
+</td>
+</tr>
+
+{%endfor%}
+
+</table>

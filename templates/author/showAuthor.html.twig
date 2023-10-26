@@ -1,0 +1,11 @@
+{% for aa in auth|filter(auth=>i==auth.id) %}
+
+{#{%if i ==aa.id %}#}
+<ul>
+<li>l'id est: {{aa.id}}</li>
+<li>le nom est: {{aa.username}}</li>
+<li>l'email est: {{aa.email}}</li>
+</ul>
+{#{% endif %}#}
+
+{% endfor %}
